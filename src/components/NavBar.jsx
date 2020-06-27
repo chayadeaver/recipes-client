@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
+// import { getCurrentUser } from '../actions/currentUser'
 
 const Styles = styled.div`
     .navbar {
@@ -15,7 +16,7 @@ const Styles = styled.div`
     }
 `;
 
-export const NavBar = () => (
+export const NavBar = (props) => (
     <Styles>
         <Navbar expand="lg" fixed="top">
             <Navbar.Brand href="/">MyFamilyRecipes</Navbar.Brand>
@@ -23,7 +24,7 @@ export const NavBar = () => (
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item> : <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
