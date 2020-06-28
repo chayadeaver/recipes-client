@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm'
+import { getMyRecipes } from './myRecipes'
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -31,6 +32,7 @@ export const login = credentials => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
+                dispatch(getMyRecipes())
                 dispatch(resetLoginForm())
             }
         })
@@ -64,6 +66,7 @@ export const getCurrentUser = () => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
+                dispatch(getMyRecipes())
             }
         })
         .catch(console.log)
