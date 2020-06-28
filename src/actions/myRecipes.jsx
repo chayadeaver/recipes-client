@@ -22,7 +22,7 @@ export const getMyRecipes = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setMyRecipes([]))
+                dispatch(setMyRecipes(response.data))
             }
         })
         .catch(console.log)
