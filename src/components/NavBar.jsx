@@ -24,7 +24,7 @@ const NavBar = ({ currentUser }) => {
 
     return (
         <div className="NavBar">
-            { currentUser ? <p>Welcome, {currentUser.name}</p> : ""}
+            { currentUser ? <p>Welcome, {currentUser.attributes.name}</p> : ""}
             { currentUser ? <Logout /> : <Login /> }
         </div>
     )
