@@ -25,6 +25,9 @@ const NavBar = ({ currentUser }) => {
     return (
         <div className="NavBar">
             { currentUser ? <p>Welcome, {currentUser.attributes.name}</p> : ""}
+            <button>Log In</button>
+            OR
+            <button>Sign Up</button>
             { currentUser ? <Logout /> : <Login /> }
         </div>
     )
