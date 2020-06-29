@@ -4,16 +4,16 @@ import { connect } from 'react-redux'
 
 
 
-const MyRecipes = (props) => {
-    const recipeCards = props.recipes.map(r => <RecipeCard recipe={r} key={r.id} />)
+const MyRecipes = ({ myRecipes }) => {
+    const recipeCards = myRecipes.map(r => <RecipeCard recipe={r} key={r.id} />)
     return (
         recipeCards
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ myRecipes }) => {
     return {
-        recipes: state.myRecipes
+        myRecipes
     }
 }
 
