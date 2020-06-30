@@ -2,8 +2,6 @@ import React from 'react'
 // import { Nav, Navbar} from 'react-bootstrap'
 // import styled from 'styled-components'
 import { connect } from 'react-redux'
-import Login from './Login'
-import Logout from './Logout'
 
 // import { getCurrentUser } from '../actions/currentUser'
 
@@ -25,10 +23,6 @@ const NavBar = ({ currentUser }) => {
     return (
         <div className="NavBar">
             { currentUser ? <p>Welcome, {currentUser.attributes.name}</p> : ""}
-            <button>Log In</button>
-            OR
-            <button>Sign Up</button>
-            { currentUser ? <Logout /> : <Login /> }
         </div>
     )
     // <Styles>
