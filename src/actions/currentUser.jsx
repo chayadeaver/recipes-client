@@ -69,16 +69,13 @@ export const signup = credentials => {
     }
 }
 
-export const logout = (history) => {
+export const logout = () => {
     return dispatch => {
-        debugger
         dispatch(clearCurrentUser())
-        debugger
         return fetch("http://localhost:3001/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
         })
-        .then(history.push('/'))
     }
 }
 
