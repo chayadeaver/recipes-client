@@ -1,4 +1,4 @@
-// synchronus actions
+// synchronus action creators
 export const setMyRecipes = recipes => {
     return {
         type: "SET_MY_RECIPES",
@@ -6,7 +6,13 @@ export const setMyRecipes = recipes => {
     }
 }
 
-// asynchronus actions
+export const clearRecipes = () => {
+    return {
+        type: "CLEAR_RECIPES"
+    }
+}
+
+// asynchronus action creators
 
 export const getMyRecipes = () => {
     return dispatch => {
