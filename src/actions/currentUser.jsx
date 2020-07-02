@@ -1,6 +1,7 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
 import { getMyRecipes } from './myRecipes'
+import { clearRecipes } from './myRecipes'
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -73,6 +74,7 @@ export const signup = (credentials, history) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearRecipes())
         return fetch("http://localhost:3001/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
