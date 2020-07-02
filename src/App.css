@@ -3,7 +3,11 @@
 }
 
 .NavBar {
-    /* display: flex;
-    flex-direction: row; */
-    color: red;
+    display: flex;
+    flex-direction: row;
+    /* position: fixed; */
+}
+
+a.active {
+    color: green;
 }
