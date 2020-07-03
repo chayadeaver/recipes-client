@@ -12,6 +12,12 @@ export const clearRecipes = () => {
     }
 }
 
+export const addRecipe = recipe => {
+    return {
+        type: "ADD_RECIPE",
+        recipe
+    }
+}
 // asynchronus action creators
 
 export const getMyRecipes = () => {
@@ -32,5 +38,20 @@ export const getMyRecipes = () => {
             }
         })
         .catch(console.log)
+    }
+}
+
+export const createRecipe = recipeData => {
+    return dispatch => {
+        return fetch("http://localhost:3001/api/v1/recipes/create", {
+            credentials: "include",    
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: recipeData
+        })
+        .then(resp => resp.json())
+        .then(console.log)
     }
 }
