@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <MainContainer />
-        { loggedIn ? <NavBar /> : <Home /> }
+        { loggedIn ? <NavBar location={this.props.location}/> : <Home /> }
           <Switch>
             <Route exact path="/signup" render={({ history }) => <Signup history={ history }/>} />
             <Route exact path="/login" component={Login} />
