@@ -11,3 +11,7 @@
 a.active {
     color: green;
 }
+
+#loggedin {
+    font-size: 7;
+}
