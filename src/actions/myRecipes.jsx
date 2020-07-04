@@ -18,6 +18,9 @@ export const addRecipe = recipe => {
         recipe
     }
 }
+
+
+
 // asynchronus action creators
 
 export const getMyRecipes = () => {
@@ -30,7 +33,7 @@ export const getMyRecipes = () => {
             },
         })
         .then(res => res.json())
-        .then(response => {
+        .then(response => { 
             if (response.error) {
                 alert(response.error)
             } else {
@@ -43,15 +46,25 @@ export const getMyRecipes = () => {
 
 export const createRecipe = recipeData => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/recipes/create", {
+        const sendableRecipeData = {
+            recipe: {
+                name: recipeData.name,
+                image_url: recipeData.imageUrl,
+                description: recipeData.description,
+                instructions: recipeData.instructions,
+                ingredients_attributes: recipeData.ingredients
+            }
+        }
+        return fetch("http://localhost:3001/api/v1/recipes", {
             credentials: "include",    
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: recipeData
+            body: JSON.stringify(sendableRecipeData)
         })
         .then(resp => resp.json())
         .then(console.log)
+        .catch(console.log)
     }
 }
