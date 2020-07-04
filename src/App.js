@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css'
 import NavBar  from './components/NavBar'
 import Home  from './components/Home'
-import Login  from './components/Login'
-import Logout  from './components/Logout'
-import Signup  from './components/Signup'
+import Login  from './components/sessions/Login'
+import Logout  from './components/sessions/Logout'
+import Signup  from './components/sessions/Signup'
 import MyRecipes  from './components/MyRecipes'
-import NewRecipeForm  from './components/NewRecipeForm'
+import NewRecipeForm  from './components/containers/NewRecipeForm'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
-import MainContainer from './components/MainContainer';
+import MainContainer from './components/containers/MainContainer';
 import { Route, Switch, withRouter, Link } from 'react-router-dom'
 
 class App extends React.Component {
@@ -19,6 +19,7 @@ class App extends React.Component {
   }
 
   render () {
+
     const { loggedIn } = this.props
     return (
       <div className="App">
