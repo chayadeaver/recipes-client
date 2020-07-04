@@ -4,20 +4,29 @@ const initialState = {
     description: "",
     instructions: "",
     ingredients: [
-        {
-            ingredientName: "",
+        { 
+            name: "", 
             quantity: "",
             unit: ""
         }
-    ]
+    ],
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case "UPDATE_NEW_RECIPE_FORM":
+            return action.formData
+        case "ADD_INGREDIENT":
             return {
                 ...state,
-                [action.formData.name]: action.formData.value
+                ingredients: [
+                    ...state.ingredients,
+                    { 
+                        name: "", 
+                        quantity: "",
+                        unit: ""
+                    }
+                ]
             }
         case "RESET_NEW_RECIPE_FORM":
             return initialState
