@@ -2,7 +2,7 @@ import React from 'react'
 // import { Nav, Navbar} from 'react-bootstrap'
 // import styled from 'styled-components'
 // import Login from './Login'
-import Logout from './Logout'
+import Logout from './sessions/Logout'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -27,7 +27,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
         <div className="NavBar">
             <NavLink exact activeClassName="active" to="/myrecipes">|  My Recipes  |  </NavLink>
             <NavLink exact activeClassName="active" to="/recipes/new">|  New Recipe  |  </NavLink>
-            { loggedIn ? <Logout /> : null}
+            { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout /></> : null}
         </div>
     )
     // <Styles>
