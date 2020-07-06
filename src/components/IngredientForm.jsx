@@ -7,10 +7,12 @@ const IngredientForm = ({ ingredientFormData, updateNewRecipeForm}) => {
 
     const handleChange = event => {
         const { name, value } = event.target 
-        const updatedFormInfo = {
-            ...ingredientFormData,
-            ingredients[name]: value
-        }
+        const updatedFormInfo = [
+                {
+                    ...ingredientFormData,
+                    [name]: value
+                }
+        ]
         updateNewRecipeForm(updatedFormInfo)
     }
 
