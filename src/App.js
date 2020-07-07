@@ -6,7 +6,7 @@ import Login  from './components/sessions/Login'
 // import Logout  from './components/sessions/Logout'
 import Signup  from './components/sessions/Signup'
 import MyRecipes  from './components/containers/MyRecipes'
-import NewRecipeForm  from './components/containers/NewRecipeForm'
+import RecipeForm  from './components/containers/RecipeForm'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 import MainContainer from './components/containers/MainContainer';
@@ -29,7 +29,7 @@ class App extends React.Component {
             <Route exact path="/signup" render={({ history }) => <Signup history={ history }/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path ="/myrecipes" component={MyRecipes}/>
-            <Route exact path ="/recipes/new" component={NewRecipeForm}/>
+            <Route exact path ="/recipes/new" component={RecipeForm}/>
           </Switch>
       </div>
     );
