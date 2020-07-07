@@ -30,6 +30,7 @@ class RecipeForm extends React.Component {
     }
 
     addIngredient = e => {
+        e.preventDefault()
         this.setState((prevState) => ({
             ingredients: [...prevState.ingredients, {name: "", quantity: "", unit: ""}],
         }))
@@ -49,8 +50,8 @@ class RecipeForm extends React.Component {
                 <p>
                     <input
                     type="text"
-                    name="recipe"
-                    id="recipe"
+                    name="name"
+                    id="name"
                     placeholder={"recipe name"}
                     onChange={this.handleChange}
                     />
@@ -85,7 +86,7 @@ class RecipeForm extends React.Component {
 
                 {
                     ingredients.map((val, idx) => {
-                        let ingId = `ingredient-${idx}`, quantityId = `quantity-${idx}`, unitId = `unit-${idx}`
+                        let ingId = `name-${idx}`, quantityId = `quantity-${idx}`, unitId = `unit-${idx}`
 
                         return (
 
