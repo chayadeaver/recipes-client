@@ -47,13 +47,11 @@ export const getMyRecipes = () => {
 export const createRecipe = recipeData => {
     return dispatch => {
         const sendableRecipeData = {
-            recipe: {
                 name: recipeData.name,
                 image_url: recipeData.imageUrl,
                 description: recipeData.description,
                 instructions: recipeData.instructions,
                 ingredients_attributes: recipeData.ingredients
-            }
         }
         return fetch("http://localhost:3001/api/v1/recipes", {
             credentials: "include",    
@@ -64,7 +62,13 @@ export const createRecipe = recipeData => {
             body: JSON.stringify(sendableRecipeData)
         })
         .then(resp => resp.json())
-        .then(console.log)
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(setMyRecipes(resp.data))
+            }
+        })
         .catch(console.log)
     }
 }
