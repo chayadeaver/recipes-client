@@ -4,28 +4,35 @@ import { createRecipe } from '../../actions/myRecipes'
 
 class RecipeForm extends React.Component {
 
-    state = {
-        name: "",
-        imageUrl: "",
-        description: "",
-        instructions: "",
-        ingredients: [
-            {
-                name: "",
-                quantity: "",
-                unit: ""
-            }
-        ]
-        
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            name: "",
+            imageUrl: "",
+            description: "",
+            instructions: "",
+            ingredients: [
+                {
+                    name: "",
+                    quantity: "",
+                    unit: ""
+                }
+            ]
+            
+        }
     }
+
+
+    
 
     handleChange = e => {
         if (["name", "quantity", "unit"].includes(e.target.className) ) {
             let ingredients = [...this.state.ingredients]
-            ingredients[e.target.dataset.id][e.target.className] = e.target.value.toUpperCase()
+            ingredients[e.target.dataset.id][e.target.className] = e.target.value
             this.setState({ ingredients }, () => console.log(this.state.ingredients))
         } else {
-            this.setState({ [e.target.name]: e.target.value.toUpperCase() })
+            this.setState({ [e.target.name]: e.target.value })
         }
     }
 
@@ -37,8 +44,10 @@ class RecipeForm extends React.Component {
     }
 
     handleSubmit = e => { 
+        // debugger
         e.preventDefault() 
         this.props.createRecipe(this.state)
+        this.props.history.replace(`/myrecipes`)
     }
 
     render() {
@@ -52,7 +61,7 @@ class RecipeForm extends React.Component {
                     type="text"
                     name="name"
                     id="name"
-                    placeholder={"recipe name"}
+                    placeholder={"name"}
                     onChange={this.handleChange}
                     />
                 </p>
@@ -138,4 +147,10 @@ class RecipeForm extends React.Component {
     }
 }
 
-export default connect(null, { createRecipe })(RecipeForm)
+const mapStateToProps = ({ myRecipes }) => {
+    return {
+        myRecipes
+    }
+}
+
+export default connect(mapStateToProps, { createRecipe })(RecipeForm)
