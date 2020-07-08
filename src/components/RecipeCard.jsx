@@ -10,7 +10,7 @@ const RecipeCard = ({ recipe }) => {
             <p>{recipe.attributes.imageUrl}</p>
             <p>{recipe.attributes.description}</p>
             <br />
-            <h5>Ingredients</h5>
+            <h5>Ingredients:</h5>
             {recipe.attributes.ingredients.map((ing, idx) => {
                 return (
                     <p key={idx}>
@@ -18,7 +18,7 @@ const RecipeCard = ({ recipe }) => {
                     </p>
                 )
             })}
-            <h5>Instructions</h5>
+            <h5>Instructions:</h5>
             <p>{recipe.attributes.instructions}</p>
             <Link to={`/recipes/${recipe.id}/edit`}>Edit This Recipe</Link>
 
