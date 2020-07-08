@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const RecipeCard = ({ recipe }) => {
@@ -19,6 +20,7 @@ const RecipeCard = ({ recipe }) => {
             })}
             <h5>Instructions</h5>
             <p>{recipe.attributes.instructions}</p>
+            <Link to={`/recipes/${recipe.id}/edit`}>Edit This Recipe</Link>
 
         </div> :
         <p>This is a recipe card with no recipe</p>
