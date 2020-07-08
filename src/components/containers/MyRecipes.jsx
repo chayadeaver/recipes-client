@@ -3,12 +3,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-
-
 const MyRecipes = props => {
     const recipeCards = props.recipes.length > 0 ? 
         props.recipes.map((r, i) => (<div key={i}>
-            <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link>
+            <Link key={r.id} to={`/recipes/${r.id}`}>{r.name}</Link>
         </div>
             )) : <p>This is myRecipes with an empty array of recipes</p>
     
@@ -20,7 +18,7 @@ const MyRecipes = props => {
 
 const mapStateToProps = state => {
     return {
-        recipes: state.myRecipes
+        recipes: state.myRecipes.userRecipes
     }
 }
 
