@@ -1,28 +1,26 @@
-import React, { useEffect } from 'react'
-import RecipeCard from '../RecipeCard'
+import React from 'react'
 // import { getMyRecipes } from '../../actions/myRecipes'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 
-const MyRecipes = ({ myRecipes }) => {
-    const recipeCards = myRecipes.map(r => <RecipeCard recipe={r} key={r.id} />)
-
-    // useEffect(() => {
-    //     getMyRecipes()
-        
-    // }, [])
+const MyRecipes = props => {
+    const recipeCards = props.recipes.length > 0 ? 
+        props.recipes.map((r, i) => (<div key={i}>
+            <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link>
+        </div>
+            )) : <p>This is myRecipes with an empty array of recipes</p>
     
     return (
-        // myRecipes.length === 0 ? recipeCards : <div><h5>There are no recipes yet</h5></div>
         recipeCards
-        )
+    )
     
 }
 
-const mapStateToProps = ({ myRecipes }) => {
+const mapStateToProps = state => {
     return {
-        myRecipes
+        recipes: state.myRecipes
     }
 }
 
