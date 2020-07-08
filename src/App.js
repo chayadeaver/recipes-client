@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import NavBar  from './components/NavBar'
 import Home  from './components/Home'
+// import RecipeShow  from './components/RecipeShow'
 import Login  from './components/sessions/Login'
 // import Logout  from './components/sessions/Logout'
 import Signup  from './components/sessions/Signup'
@@ -30,6 +31,8 @@ class App extends React.Component {
             <Route exact path="/login" component={Login} />
             <Route exact path ="/myrecipes" component={MyRecipes}/>
             <Route exact path ="/recipes/new" component={RecipeForm}/>
+            {/* <Route exact path ="/recipes/:id" component={RecipeShow}/> */}
+
           </Switch>
       </div>
     );
