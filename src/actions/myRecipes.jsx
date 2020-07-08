@@ -1,3 +1,5 @@
+import { resetRecipeForm } from './myIngredients'
+
 // synchronus action creators
 export const setMyRecipes = recipes => {
     return {
@@ -66,8 +68,11 @@ export const createRecipe = recipeData => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-                dispatch(setMyRecipes(resp.data))
+                dispatch(addRecipe(resp.data))
+                // dispatch(resetRecipeForm())
+                // history.push(`/recipes/${resp.data.id}`)
             }
+            
         })
         .catch(console.log)
     }
