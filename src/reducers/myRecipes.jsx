@@ -5,7 +5,7 @@ export default (state = initialState, action) => {
         case "SET_MY_RECIPES":
             return action.recipes
         case "ADD_RECIPE":
-            return state.recipes.concat(action.recipes)
+            return state.concat(action.recipe)
         case "CLEAR_RECIPES":
             return initialState
         default:
