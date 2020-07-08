@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css'
 import NavBar  from './components/NavBar'
 import Home  from './components/Home'
-// import RecipeShow  from './components/RecipeShow'
+import RecipeCard  from './components/RecipeCard'
 import Login  from './components/sessions/Login'
 // import Logout  from './components/sessions/Logout'
 import Signup  from './components/sessions/Signup'
@@ -21,7 +21,7 @@ class App extends React.Component {
 
   render () {
 
-    const { loggedIn } = this.props
+    const { loggedIn, recipes } = this.props
     return (
       <div className="App">
         <MainContainer />
@@ -31,8 +31,12 @@ class App extends React.Component {
             <Route exact path="/login" component={Login} />
             <Route exact path ="/myrecipes" component={MyRecipes}/>
             <Route exact path ="/recipes/new" component={RecipeForm}/>
-            {/* <Route exact path ="/recipes/:id" component={RecipeShow}/> */}
-
+            <Route exact path ="/recipes/:id" render={props => {
+                const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
+                console.log(recipe)
+                return <RecipeCard recipe={recipe} {...props}/>
+              }
+            }/>
           </Switch>
       </div>
     );
@@ -42,7 +46,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    recipes: state.myRecipes
   }
 }
 
