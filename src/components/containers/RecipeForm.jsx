@@ -18,8 +18,8 @@ class RecipeForm extends React.Component {
                     quantity: "",
                     unit: ""
                 }
-            ]
-            
+            ],
+            errors: {}
         }
     }
 
@@ -43,6 +43,7 @@ class RecipeForm extends React.Component {
         }))
     }
 
+
     handleSubmit = e => { 
         // debugger
         e.preventDefault() 
@@ -52,7 +53,7 @@ class RecipeForm extends React.Component {
 
     render() {
 
-        let { ingredients } = this.state
+        let { name, imageUrl, description, instructions, ingredients } = this.state
         return (
             <form onSubmit={this.handleSubmit} >
             <label>Recipe</label><br />
@@ -64,6 +65,7 @@ class RecipeForm extends React.Component {
                     id="name"
                     placeholder={"name"}
                     onChange={this.handleChange}
+                    value={name}
                     />
                 </p>
                 <p>
@@ -73,6 +75,7 @@ class RecipeForm extends React.Component {
                     id="imageUrl"
                     placeholder={"imageUrl"}
                     onChange={this.handleChange}
+                    value={imageUrl}
                     />
                 </p>
                 <p>
@@ -82,7 +85,9 @@ class RecipeForm extends React.Component {
                     name="description"
                     id="description"
                     placeholder={"description"}
-                    onChange={this.handleChange}></textarea>
+                    onChange={this.handleChange}
+                    value={description}
+                    ></textarea>
                 </p>
                 <p>
                     <textarea 
@@ -91,7 +96,9 @@ class RecipeForm extends React.Component {
                     name="instructions"
                     id="instructions"
                     placeholder={"instructions"}
-                    onChange={this.handleChange}></textarea>
+                    onChange={this.handleChange}
+                    vale={instructions}
+                    ></textarea>
                 </p>
 
                 {
@@ -110,6 +117,7 @@ class RecipeForm extends React.Component {
                                     id={ingId}
                                     className="name"
                                     placeholder={"name"}
+                                    value={ingredients[idx].name}
                                     onChange={this.handleChange}
                                 />
                                 </p>
@@ -121,6 +129,7 @@ class RecipeForm extends React.Component {
                                     id={quantityId}
                                     className="quantity"
                                     placeholder={"quantity"}
+                                    value={ingredients[idx].quantity}
                                     onChange={this.handleChange}
                                 />
                                 </p>
@@ -132,6 +141,7 @@ class RecipeForm extends React.Component {
                                     id={unitId}
                                     className="unit"
                                     placeholder={"unit"}
+                                    value={ingredients[idx].unit}
                                     onChange={this.handleChange}
                                 />
                                 </p>
