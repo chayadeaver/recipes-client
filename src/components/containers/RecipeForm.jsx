@@ -58,6 +58,7 @@ class RecipeForm extends React.Component {
             <label>Recipe</label><br />
                 <p>
                     <input
+                    autoFocus
                     type="text"
                     name="name"
                     id="name"

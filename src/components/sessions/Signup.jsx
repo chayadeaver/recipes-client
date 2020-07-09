@@ -20,9 +20,11 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div>
+            <br />
+            <form onSubmit={handleSubmit}>
             <p>
-                <input type="text" placeholder="Name" value={signupFormData.name} name="name" onChange={handleInputChange} />
+                <input autoFocus type="text" placeholder="Name" value={signupFormData.name} name="name" onChange={handleInputChange} />
             </p>
             <p>
                 <input type="text" placeholder="Email" value={signupFormData.email} name="email" onChange={handleInputChange} />
@@ -32,6 +34,8 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
             </p>
             <input type="submit" value="Sign Up"/>
         </form>
+        </div>
+        
     )
 }
 
