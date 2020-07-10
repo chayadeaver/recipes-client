@@ -9,8 +9,7 @@ const Home = props => {
     const recipeCards = props.recipes.length > 0 ? 
         props.recipes.map((r, i) => (<div key={i}>
             <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link>
-        </div>
-            )) : <p>This is myRecipes with an empty array of recipes</p>
+        </div>)) : <p>This is myRecipes with an empty array of recipes</p>
 
     return (
     
