@@ -22,6 +22,19 @@ export const addRecipe = recipe => {
     }
 }
 
+// export const setEditRecipe = recipe => {
+//     return {
+//         type: "EDIT_RECIPE",
+//         recipe
+//     }
+// }
+
+export const setUpdateRecipe = recipe => {
+    return {
+
+    }
+}
+
 
 
 // asynchronus action creators
@@ -46,26 +59,34 @@ export const getAllRecipes = () => {
     }
 }
 
-// export const getMyRecipes = () => {
-//     return dispatch => {
-//         return fetch("http://localhost:3001/api/v1/current_user_recipes", {
-//             credentials: "include",
-//             method: "GET",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//         })
-//         .then(res => res.json())
-//         .then(response => { 
-//             if (response.error) {
-//                 alert(response.error)
-//             } else {
-//                 dispatch(setMyRecipes(response.data))
-//             }
-//         })
-//         .catch(console.log)
-//     }
-// }
+export const updateRecipe = recipeData => {
+    return dispatch => {
+        const sendableRecipeData = {
+            name: recipeData.name,
+            image_url: recipeData.imageUrl,
+            description: recipeData.description,
+            instructions: recipeData.instructions,
+            ingredients_attributes: recipeData.ingredients
+    }
+        return fetch(`http://localhost:3001/api/v1/recipes/${recipeData.id}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableRecipeData)
+        })
+        .then(res => res.json())
+        .then(response => { 
+            if (response.error) {
+                alert(response.error)
+            } else {
+                // dispatch(setEditRecipe(response.data))
+            }
+        })
+        .catch(console.log)
+    }
+}
 
 export const createRecipe = recipeData => {
     return dispatch => {
