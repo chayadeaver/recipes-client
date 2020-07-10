@@ -23,14 +23,17 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
         <div>
             <br />
             <form onSubmit={handleSubmit}>
-            <p>
-                <input autoFocus type="text" placeholder="Email" value={loginFormData.email} name="email" onChange={handleInputChange} />
-            </p>
-            <p>
-                <input type="password" placeholder="Password" value={loginFormData.password} name="password" onChange={handleInputChange} />
-            </p>
-            
-            <input type="submit" value="Login"/>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input autoFocus type="text" placeholder="Email" value={loginFormData.email} name="email" onChange={handleInputChange} />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input type="password" placeholder="Password" value={loginFormData.password} name="password" onChange={handleInputChange} />
+                    </div>
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
             </form>
         </div>
         

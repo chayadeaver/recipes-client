@@ -18,8 +18,7 @@ class RecipeForm extends React.Component {
                     quantity: "",
                     unit: ""
                 }
-            ],
-            errors: {}
+            ]
         }
     }
 
@@ -51,55 +50,76 @@ class RecipeForm extends React.Component {
         this.props.history.replace(`/myrecipes`)
     }
 
+    // componentDidMount() {
+    //     if (this.props.attributes) {
+    //         const { attributes } = this.props
+    //         this.setState({
+    //             name: attributes.name,
+    //             imageUrl: attributes.image_url,
+    //             description: attributes.description,
+    //             instructions: attributes.instructions,
+    //             ingredients: attributes.ingredients
+
+    //         })
+    //     }
+        
+    // }
+
     render() {
 
         let { name, imageUrl, description, instructions, ingredients } = this.state
         return (
             <form onSubmit={this.handleSubmit} >
             <label>Recipe</label><br />
-                <p>
-                    <input
-                    autoFocus
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder={"name"}
-                    onChange={this.handleChange}
-                    value={name}
-                    />
-                </p>
-                <p>
-                    <input
-                    type="text"
-                    name="imageUrl"
-                    id="imageUrl"
-                    placeholder={"imageUrl"}
-                    onChange={this.handleChange}
-                    value={imageUrl}
-                    />
-                </p>
-                <p>
-                    <textarea 
-                    cols="50" 
-                    rows="4"
-                    name="description"
-                    id="description"
-                    placeholder={"description"}
-                    onChange={this.handleChange}
-                    value={description}
-                    ></textarea>
-                </p>
-                <p>
-                    <textarea 
-                    cols="50" 
-                    rows="8"
-                    name="instructions"
-                    id="instructions"
-                    placeholder={"instructions"}
-                    onChange={this.handleChange}
-                    vale={instructions}
-                    ></textarea>
-                </p>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input
+                        autoFocus
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder={"name"}
+                        onChange={this.handleChange}
+                        value={name}
+                        />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input
+                        type="text"
+                        name="imageUrl"
+                        id="imageUrl"
+                        placeholder={"imageUrl"}
+                        onChange={this.handleChange}
+                        value={imageUrl}
+                        />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <textarea 
+                        cols="50" 
+                        rows="4"
+                        name="description"
+                        id="description"
+                        placeholder={"description"}
+                        onChange={this.handleChange}
+                        value={description}></textarea>
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <textarea 
+                        cols="50" 
+                        rows="8"
+                        name="instructions"
+                        id="instructions"
+                        placeholder={"instructions"}
+                        onChange={this.handleChange}
+                        vale={instructions}></textarea>
+                    </div>
+                </div>
 
                 {
                     ingredients.map((val, idx) => {
@@ -109,50 +129,55 @@ class RecipeForm extends React.Component {
 
                             <div key={idx}>
                                 <label htmlFor={ingId}>{`Ingredient #${idx + 1}`}</label>
-                                <p>
-                                <input
-                                    type="text"
-                                    name={ingId}
-                                    data-id={idx}
-                                    id={ingId}
-                                    className="name"
-                                    placeholder={"name"}
-                                    value={ingredients[idx].name}
-                                    onChange={this.handleChange}
-                                />
-                                </p>
-                                <p>
-                                <input
-                                    type="text"
-                                    name={quantityId}
-                                    data-id={idx}
-                                    id={quantityId}
-                                    className="quantity"
-                                    placeholder={"quantity"}
-                                    value={ingredients[idx].quantity}
-                                    onChange={this.handleChange}
-                                />
-                                </p>
-                                <p>
-                                <input
-                                    type="text"
-                                    name={unitId}
-                                    data-id={idx}
-                                    id={unitId}
-                                    className="unit"
-                                    placeholder={"unit"}
-                                    value={ingredients[idx].unit}
-                                    onChange={this.handleChange}
-                                />
-                                </p>
-
+                                <div className="form-group">
+                                    <div className="col-auto">
+                                        <input
+                                        type="text"
+                                        name={ingId}
+                                        data-id={idx}
+                                        id={ingId}
+                                        className="name"
+                                        placeholder={"name"}
+                                        value={ingredients[idx].name}
+                                        onChange={this.handleChange}
+                                    />
+                                    </div>
+                                </div>
+                            <div className="form-group">
+                                <div className="col-auto">
+                                    <input
+                                        type="text"
+                                        name={quantityId}
+                                        data-id={idx}
+                                        id={quantityId}
+                                        className="quantity"
+                                        placeholder={"quantity"}
+                                        value={ingredients[idx].quantity}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
                             </div>
+                            <div className="form-group">
+                                <div className="col-auto">
+                                    <input
+                                        type="text"
+                                        name={unitId}
+                                        data-id={idx}
+                                        id={unitId}
+                                        className="unit"
+                                        placeholder={"unit"}
+                                        value={ingredients[idx].unit}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                         )
                     })
                 }
-                <p><button onClick={this.addIngredient}>Add New Ingredient</button></p>
+                <p><button className="btn btn-secondary" onClick={this.addIngredient}>Add New Ingredient</button></p>
 
-                <input type="submit" value="Create A New Recipe" />
+                <input className="btn btn-primary" type="submit" value="Create A New Recipe" />
                 </form>
         )
     }

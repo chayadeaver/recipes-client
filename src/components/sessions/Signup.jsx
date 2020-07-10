@@ -23,17 +23,23 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
         <div>
             <br />
             <form onSubmit={handleSubmit}>
-            <p>
-                <input autoFocus type="text" placeholder="Name" value={signupFormData.name} name="name" onChange={handleInputChange} />
-            </p>
-            <p>
-                <input type="text" placeholder="Email" value={signupFormData.email} name="email" onChange={handleInputChange} />
-            </p>
-            <p>
-                <input type="password" placeholder="Password" value={signupFormData.password} name="password" onChange={handleInputChange} />
-            </p>
-            <input type="submit" value="Sign Up"/>
-        </form>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input autoFocus type="text" placeholder="Name" value={signupFormData.name} name="name" onChange={handleInputChange} />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input type="text" placeholder="Email" value={signupFormData.email} name="email" onChange={handleInputChange} />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-auto">
+                        <input type="password" placeholder="Password" value={signupFormData.password} name="password" onChange={handleInputChange} />
+                    </div>
+                </div>
+                <button type="submit" className="btn btn-primary">Sign Up</button>
+            </form>
         </div>
         
     )
