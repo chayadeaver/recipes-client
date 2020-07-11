@@ -1,4 +1,5 @@
 import { setAllRecipes } from "../reducers/myRecipes"
+import { setCurrentUser } from './currentUser';
 
 
 // synchronus action creators
@@ -55,15 +56,15 @@ export const getAllRecipes = () => {
 }
 
 export const updateRecipe = (recipeData, id, history) => {
-    console.log(recipeData)
-    return dispatch => {
+    return (dispatch, getState) => {
+        const { currentUser } = getState()
         const sendableRecipeData = {
             name: recipeData.name,
             image_url: recipeData.imageUrl,
             description: recipeData.description,
             instructions: recipeData.instructions,
             ingredients_attributes: recipeData.ingredients
-    }
+        }
         return fetch(`http://localhost:3001/api/v1/recipes/${id}`, {
             credentials: "include",
             method: "PATCH",
@@ -74,8 +75,11 @@ export const updateRecipe = (recipeData, id, history) => {
         })
         .then(res => res.json())
         .then(response => { 
+            const userId = response.data.relationships.user.data.id
             if (response.error) {
                 alert(response.error)
+            } else if (userId === currentUser.id) {
+                alert(response.invalid_user)
             } else {
                 dispatch(setUpdateRecipe(response.data))
                 history.push(`/recipes/${id}`)
