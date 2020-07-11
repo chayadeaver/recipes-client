@@ -1,6 +1,5 @@
 import React from "react";
-import { connect } from 'react-redux'
-import { createRecipe } from '../../actions/myRecipes'
+
 
 class RecipeForm extends React.Component {
 
@@ -46,27 +45,26 @@ class RecipeForm extends React.Component {
     handleSubmit = e => { 
         // debugger
         e.preventDefault() 
-        this.props.createRecipe(this.state)
-        this.props.history.replace(`/myrecipes`)
+        this.props.onSubmit(this.state, this.props.recipe.id, this.props.history)
+        // this.props.history.replace(`/myrecipes`)
     }
 
-    // componentDidMount() {
-    //     if (this.props.attributes) {
-    //         const { attributes } = this.props
-    //         this.setState({
-    //             name: attributes.name,
-    //             imageUrl: attributes.image_url,
-    //             description: attributes.description,
-    //             instructions: attributes.instructions,
-    //             ingredients: attributes.ingredients
-
-    //         })
-    //     }
+    componentDidMount() {
+        if (this.props.recipe) {
+            const { attributes } = this.props.recipe
+            this.setState({
+                name: attributes.name,
+                imageUrl: attributes.image_url,
+                description: attributes.description,
+                instructions: attributes.instructions,
+                ingredients: attributes.ingredients
+            })
+        }
         
-    // }
+    }
+
 
     render() {
-
         let { name, imageUrl, description, instructions, ingredients } = this.state
         return (
             <form onSubmit={this.handleSubmit} >
@@ -117,7 +115,7 @@ class RecipeForm extends React.Component {
                         id="instructions"
                         placeholder={"instructions"}
                         onChange={this.handleChange}
-                        vale={instructions}></textarea>
+                        value={instructions}></textarea>
                     </div>
                 </div>
 
@@ -177,16 +175,11 @@ class RecipeForm extends React.Component {
                 }
                 <p><button className="btn btn-secondary" onClick={this.addIngredient}>Add New Ingredient</button></p>
 
-                <input className="btn btn-primary" type="submit" value="Create A New Recipe" />
+                <input className="btn btn-primary" type="submit" value={this.props.buttonText} />
                 </form>
         )
     }
 }
 
-const mapStateToProps = ({ myRecipes }) => {
-    return {
-        myRecipes
-    }
-}
 
-export default connect(mapStateToProps, { createRecipe })(RecipeForm)
+export default RecipeForm
