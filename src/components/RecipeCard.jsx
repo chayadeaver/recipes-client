@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, currentUser }) => {
+    
+    const recipeUserId = recipe.relationships.user.data.id
+    const currentUserId = currentUser.id
     return (
         recipe ?
         <div>
@@ -21,7 +25,8 @@ const RecipeCard = ({ recipe }) => {
             })}
             <h5>Instructions:</h5>
             <p>{recipe.attributes.instructions}</p>
-            <Link to={`/recipes/${recipe.id}/edit`}>Edit This Recipe</Link>
+            {recipeUserId === currentUserId ? <Link to={`/recipes/${recipe.id}/edit`}>Edit This Recipe</Link> : null}
+            
 
         </div> :
         <p>This is a recipe card with no recipe</p>
@@ -29,4 +34,10 @@ const RecipeCard = ({ recipe }) => {
     )
 }
 
-export default RecipeCard
+const mapStateToProps = state => {
+    return {
+        currentUser: state.currentUser
+    }
+}
+
+export default connect(mapStateToProps, null)(RecipeCard)
