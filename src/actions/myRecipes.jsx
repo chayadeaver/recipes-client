@@ -1,37 +1,4 @@
-import { setAllRecipes } from "../reducers/myRecipes"
-import { setCurrentUser } from './currentUser';
-
-
-// synchronus action creators
-export const setMyRecipes = recipes => {
-    return {
-        type: "SET_MY_RECIPES",
-        recipes
-    }
-}
-
-export const clearRecipes = () => {
-    return {
-        type: "CLEAR_RECIPES"
-    }
-}
-
-export const addRecipe = recipe => {
-    return {
-        type: "ADD_RECIPE",
-        recipe
-    }
-}
-
-
-export const setUpdateRecipe = recipe => {
-    return {
-        type: "UPDATE_RECIPE",
-        recipe
-    }
-}
-
-
+import { setAllRecipes, setUpdateRecipe, addRecipe } from "../reducers/myRecipes"
 
 // asynchronus action creators
 export const getAllRecipes = () => {
