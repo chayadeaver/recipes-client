@@ -11,6 +11,7 @@ const RecipeCard = ({ recipe }) => {
             <p>{recipe.attributes.description}</p>
             <br />
             <h5>Ingredients:</h5>
+            {console.log(recipe)}
             {recipe.attributes.ingredients.map((ing, idx) => {
                 return (
                     <p key={idx}>
