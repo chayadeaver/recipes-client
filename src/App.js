@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 import MainContainer from './components/containers/MainContainer';
 import { Route, Switch, withRouter, Link, Redirect } from 'react-router-dom'
-import { getAllRecipes } from './actions/myRecipes';
+import { getAllRecipes, updateRecipe, createRecipe } from './actions/myRecipes';
 
 class App extends React.Component {
   
@@ -24,7 +24,7 @@ class App extends React.Component {
 
   render () {
 
-    const { loggedIn, allRecipes } = this.props
+    const { loggedIn, allRecipes, updateRecipe, createRecipe } = this.props
     return (
       <div className="App">
         <MainContainer />
@@ -35,17 +35,15 @@ class App extends React.Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/no-match" component={NoMatch} />
             <Route exact path ="/myrecipes" component={MyRecipes}/>
-            <Route exact path ="/recipes/new" component={RecipeForm}/>
+            <Route exact path ="/recipes/new" render={props => <RecipeForm onSubmit={createRecipe} {...props} buttonText={"Create A Recipe"}/>}/>
             <Route exact path ="/recipes/:id" render={props => {
                 const recipe = allRecipes.find(recipe => recipe.id === props.match.params.id)
-                console.log(recipe)
                 return <RecipeCard recipe={recipe} {...props}/>
               }
             }/>
             <Route exact path ="/recipes/:id/edit" render={props => {
                 const recipe = allRecipes.find(recipe => recipe.id === props.match.params.id)
-                console.log(recipe)
-                return <RecipeForm recipe={recipe} {...props}/>
+                return <RecipeForm onSubmit={updateRecipe} recipe={recipe} {...props} buttonText={"Update Recipe"}/>
               }
             }/>
             <Route exact path="/" component={Home} />
@@ -66,4 +64,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, getAllRecipes })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser, getAllRecipes, updateRecipe, createRecipe })(App));
