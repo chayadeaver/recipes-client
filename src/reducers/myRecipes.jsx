@@ -35,6 +35,16 @@ export default (state = initialState, action) => {
                 ...state,
                 recipes: [...state.recipes, action.recipe]
             }
+        case "UPDATE_RECIPE":
+            return {
+                ...state, 
+                allRecipes: state.allRecipes.map(recipe => {
+                    if (action.recipe.id === recipe.id) {
+                        return action.recipe
+                    }
+                    return recipe
+                })
+            }
         case "CLEAR_RECIPES":
             return {
                 ...state,
