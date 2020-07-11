@@ -22,16 +22,11 @@ export const addRecipe = recipe => {
     }
 }
 
-// export const setEditRecipe = recipe => {
-//     return {
-//         type: "EDIT_RECIPE",
-//         recipe
-//     }
-// }
 
 export const setUpdateRecipe = recipe => {
     return {
-
+        type: "UPDATE_RECIPE",
+        recipe
     }
 }
 
@@ -59,7 +54,8 @@ export const getAllRecipes = () => {
     }
 }
 
-export const updateRecipe = recipeData => {
+export const updateRecipe = (recipeData, id, history) => {
+    console.log(recipeData)
     return dispatch => {
         const sendableRecipeData = {
             name: recipeData.name,
@@ -68,7 +64,7 @@ export const updateRecipe = recipeData => {
             instructions: recipeData.instructions,
             ingredients_attributes: recipeData.ingredients
     }
-        return fetch(`http://localhost:3001/api/v1/recipes/${recipeData.id}`, {
+        return fetch(`http://localhost:3001/api/v1/recipes/${id}`, {
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -81,7 +77,8 @@ export const updateRecipe = recipeData => {
             if (response.error) {
                 alert(response.error)
             } else {
-                // dispatch(setEditRecipe(response.data))
+                dispatch(setUpdateRecipe(response.data))
+                history.push(`/recipes/${id}`)
             }
         })
         .catch(console.log)
