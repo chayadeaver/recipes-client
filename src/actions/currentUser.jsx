@@ -1,7 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { clearRecipes } from './myRecipes'
-import { setMyRecipes } from '../reducers/myRecipes'
+import { setMyRecipes, clearRecipes } from '../reducers/myRecipes'
 
 // synchronous action creators
 export const setCurrentUser = user => {
