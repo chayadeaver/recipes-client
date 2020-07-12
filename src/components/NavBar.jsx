@@ -1,13 +1,8 @@
 import React from 'react'
 import { Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
-// import Login from './Login'
-// import Logout from './sessions/Logout'
 import { logout } from '../actions/currentUser'
-import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-
-// import { getCurrentUser } from '../actions/currentUser'
 
 const Styles = styled.div`
     .navbar {
@@ -24,14 +19,7 @@ const Styles = styled.div`
 
 const NavBar = ({ currentUser, loggedIn, logout }) => {
 
-    // return (
-    //     <div className="NavBar">
-    //         <NavLink exact activeClassName="active" to="/">|  Home  |  </NavLink>
-    //         <NavLink exact activeClassName="active" to="/myrecipes">|  My Recipes  |  </NavLink>
-    //         <NavLink exact activeClassName="active" to="/recipes/new">|  New Recipe  |  </NavLink>
-    //         { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout /></> : null}
-    //     </div>
-    // )
+    
     const renderNavbar = () => {
         if (loggedIn) {
             return (
