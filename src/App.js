@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <MainContainer />
-        { loggedIn ? <NavBar location={this.props.location}/> : <h2>To add recipes, please <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link></h2> }
+        <NavBar location={this.props.location}/>
           
           <Switch>
             <Route exact path="/signup" render={({ history }) => <Signup history={ history }/>} />
