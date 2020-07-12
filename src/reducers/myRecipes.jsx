@@ -1,5 +1,5 @@
 // import { resetLoginForm } from "../actions/loginForm"
-import { getAllRecipes } from '../actions/myRecipes';
+// import { getAllRecipes } from '../actions/myRecipes';
 
 const initialState = {
     allRecipes: [],
@@ -34,6 +34,11 @@ export default (state = initialState, action) => {
                     }
                     return recipe
                 })
+            }
+        case "FETCH_RECIPE":
+            return {
+                ...state,
+                recipe: action.recipe
             }
         case "SEARCH_ALL_RECIPES":
             return {
@@ -89,6 +94,13 @@ export const addRecipe = recipe => {
 export const setUpdateRecipe = recipe => {
     return {
         type: "UPDATE_RECIPE",
+        recipe
+    }
+}
+
+export const fetchRecipe = recipe => {
+    return {
+        type: "FETCH_RECIPE",
         recipe
     }
 }
