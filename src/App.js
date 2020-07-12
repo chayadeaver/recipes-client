@@ -27,8 +27,9 @@ class App extends React.Component {
     const { loggedIn, allRecipes, updateRecipe, createRecipe } = this.props
     return (
       <div className="App">
-        <MainContainer />
         <NavBar location={this.props.location}/>
+        <MainContainer />
+        
           
           <Switch>
             <Route exact path="/signup" render={({ history }) => <Signup history={ history }/>} />
