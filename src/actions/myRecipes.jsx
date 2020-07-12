@@ -1,4 +1,4 @@
-import { setAllRecipes, setUpdateRecipe, addRecipe } from "../reducers/myRecipes"
+import { setAllRecipes, setUpdateRecipe, addRecipe, fetchRecipe } from "../reducers/myRecipes"
 
 // asynchronus action creators
 export const getAllRecipes = () => {
@@ -22,9 +22,30 @@ export const getAllRecipes = () => {
     }
 }
 
+export const getRecipe = id => {    
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/recipes/${id}`, {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(res => res.json())
+        .then(response => { 
+            if (response.error) {
+                alert(response.error)
+            } else {                
+                dispatch(fetchRecipe(response.data))
+            }
+        })
+        .catch(console.log)
+    }
+}
+
 export const updateRecipe = (recipeData, id, history) => {
-    return (dispatch, getState) => {
-        const { currentUser } = getState()
+    return dispatch => {
+        // const { currentUser } = getState()
         const sendableRecipeData = {
             name: recipeData.name,
             image_url: recipeData.imageUrl,
@@ -41,13 +62,12 @@ export const updateRecipe = (recipeData, id, history) => {
             body: JSON.stringify(sendableRecipeData)
         })
         .then(res => res.json())
-        .then(response => { 
-            const userId = response.data.relationships.user.data.id
+        .then(response => {
+            // debugger
+            // const userId = response.data.relationships.user.data.id
             if (response.error) {
                 alert(response.error)
-            } else if (userId === currentUser.id) {
-                alert(response.invalid_user)
-            } else {
+            }  else {
                 dispatch(setUpdateRecipe(response.data))
                 history.push(`/recipes/${id}`)
             }
