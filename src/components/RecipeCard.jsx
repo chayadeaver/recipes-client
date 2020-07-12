@@ -8,7 +8,7 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match }) => {
     
     useEffect(() => {
         getRecipe(match.params.id)
-    }, [])
+    })
 
     
         if (recipe){
@@ -24,7 +24,6 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match }) => {
             <p>{recipe.attributes.description}</p>
             <br />
             <h5>Ingredients:</h5>
-            {console.log(recipe)}
             {recipe.attributes.ingredients.map((ing, idx) => {
                 return (
                     <p key={idx}>
@@ -44,7 +43,6 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match }) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return {
         currentUser: state.currentUser,
         recipe: state.myRecipes.recipe
