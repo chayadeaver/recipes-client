@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 const Styles = styled.div`
     .navbar {
         background-color: #222;
+        opacity: 0.80;
     }
     .navbar-brand, .navbar-nav .nav-link {
         color: #bbb;
