@@ -12,7 +12,7 @@ import RecipeForm  from './components/RecipeForm'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 import MainContainer from './components/containers/MainContainer';
-import { Route, Switch, withRouter, Link, Redirect } from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { getAllRecipes, updateRecipe, createRecipe } from './actions/myRecipes';
 
 class App extends React.Component {
@@ -24,7 +24,7 @@ class App extends React.Component {
 
   render () {
 
-    const { loggedIn, allRecipes, updateRecipe, createRecipe } = this.props
+    const { allRecipes, updateRecipe, createRecipe } = this.props
     return (
       <div className="App">
         <NavBar location={this.props.location}/>
@@ -59,8 +59,6 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: !!state.currentUser,
-    // recipes: state.myRecipes,
     allRecipes: state.myRecipes.allRecipes
   }
 }
