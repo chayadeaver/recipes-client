@@ -27,7 +27,7 @@ class App extends React.Component {
     const { allRecipes, updateRecipe, createRecipe } = this.props
     return (
       <div className="App">
-        <NavBar location={this.props.location}/>
+        <NavBar location={this.props.location} history={this.props.history}/>
         <MainContainer />
         
           
