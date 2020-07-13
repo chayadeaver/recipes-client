@@ -9,8 +9,6 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match, loggedIn }) => {
     useEffect(() => {
         getRecipe(match.params.id)
     })
-
-    
         if (recipe && loggedIn ){
             const recipeUserId = recipe.relationships.user.data.id
             const currentUserId = currentUser.id
