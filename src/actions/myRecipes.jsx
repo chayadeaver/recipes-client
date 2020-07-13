@@ -22,6 +22,28 @@ export const getAllRecipes = () => {
     }
 }
 
+// export const getMyRecipes = () => {
+//     return dispatch => {
+//         return fetch("http://localhost:3001/api/v1/current_user_recipes", {
+//             credentials: "include",
+//             method: "GET",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//         })
+//         .then(res => res.json())
+//         .then(response => { 
+//             debugger
+//             if (response.error) {
+//                 alert(response.error)
+//             } else {
+//                 dispatch(setMyRecipes(response.data))
+//             }
+//         })
+//         .catch(console.log)
+//     }
+// }
+
 export const getRecipe = id => {    
     return dispatch => {
         return fetch(`http://localhost:3001/api/v1/recipes/${id}`, {
@@ -102,7 +124,7 @@ export const createRecipe = (recipeData, history) => {
                 // dispatch(setAllRecipes(resp.data))
                 // dispatch(setMyRecipes(resp.data.attributes.recipes))
                 // debugger
-                history.push("/")
+                history.push("/myrecipes")
             }
             
         })
