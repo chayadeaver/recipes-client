@@ -93,7 +93,7 @@ export const getCurrentUser = () => {
         .then(response => {
             // debugger
             if (response.error) {
-                alert(response.error)
+                console.log(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
                 dispatch(setMyRecipes(response.data.attributes.recipes))
