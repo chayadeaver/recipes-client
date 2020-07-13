@@ -44,8 +44,9 @@ class RecipeForm extends React.Component {
 
     handleSubmit = e => { 
         // debugger
-        e.preventDefault() 
-        this.props.onSubmit(this.state, this.props.recipe.id, this.props.history)
+        e.preventDefault()
+        const id = this.props.recipe ? this.props.recipe.id : null
+        this.props.onSubmit(this.state, this.props.history, id)
         // this.props.history.replace(`/myrecipes`)
     }
 
