@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { setMyRecipes, clearRecipes } from '../reducers/myRecipes'
+import { clearRecipes } from '../reducers/myRecipes'
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -33,7 +33,7 @@ export const login = (credentials, history) => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(setMyRecipes(response.data.attributes.recipes))
+                // dispatch(setMyRecipes(response.data.attributes.recipes))
                 dispatch(resetLoginForm())
                 history.push('/')
             }
@@ -69,10 +69,10 @@ export const signup = (credentials, history) => {
     }
 }
 
-export const logout = () => {
+export const logout = history => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        dispatch(clearRecipes())
+        // dispatch(clearRecipes())
         return fetch("http://localhost:3001/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
@@ -96,7 +96,7 @@ export const getCurrentUser = () => {
                 console.log(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(setMyRecipes(response.data.attributes.recipes))
+                // dispatch(setMyRecipes(response.data.attributes.recipes))
             }
         })
         .catch(console.log)
