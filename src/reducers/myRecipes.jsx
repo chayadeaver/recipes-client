@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
         case "ADD_RECIPE":
             return {
                 ...state,
-                recipes: [...state.recipes, action.recipe]
+                allRecipes: [...state.allRecipes, action.recipe]
             }
         case "UPDATE_RECIPE":
             return {
