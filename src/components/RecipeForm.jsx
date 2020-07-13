@@ -21,9 +21,6 @@ class RecipeForm extends React.Component {
         }
     }
 
-
-    
-
     handleChange = e => {
         if (["name", "quantity", "unit"].includes(e.target.className) ) {
             let ingredients = [...this.state.ingredients]
