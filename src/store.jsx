@@ -1,6 +1,5 @@
 // Redux store
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-// import usersReducer from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import myRecipes from './reducers/myRecipes'
