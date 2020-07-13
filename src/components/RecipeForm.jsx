@@ -124,7 +124,6 @@ class RecipeForm extends React.Component {
                         let ingId = `name-${idx}`, quantityId = `quantity-${idx}`, unitId = `unit-${idx}`
 
                         return (
-
                             <div key={idx}>
                                 <label htmlFor={ingId}>{`Ingredient #${idx + 1}`}</label>
                                 <div className="form-group">
