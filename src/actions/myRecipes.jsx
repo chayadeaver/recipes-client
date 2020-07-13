@@ -1,4 +1,4 @@
-import { setAllRecipes, setUpdateRecipe, addRecipe, fetchRecipe } from "../reducers/myRecipes"
+import { setAllRecipes, setUpdateRecipe, addRecipe, fetchRecipe} from "../reducers/myRecipes"
 
 // asynchronus action creators
 export const getAllRecipes = () => {
@@ -43,7 +43,7 @@ export const getRecipe = id => {
     }
 }
 
-export const updateRecipe = (recipeData, id, history) => {
+export const updateRecipe = (recipeData, history, id) => {
     return dispatch => {
         // const { currentUser } = getState()
         const sendableRecipeData = {
@@ -76,7 +76,7 @@ export const updateRecipe = (recipeData, id, history) => {
     }
 }
 
-export const createRecipe = recipeData => {
+export const createRecipe = (recipeData, history) => {
     return dispatch => {
         const sendableRecipeData = {
                 name: recipeData.name,
@@ -99,8 +99,10 @@ export const createRecipe = recipeData => {
                 alert(resp.error)
             } else {
                 dispatch(addRecipe(resp.data))
-                // dispatch(resetRecipeForm())
-                // history.push(`/recipes/${resp.data.id}`)
+                // dispatch(setAllRecipes(resp.data))
+                // dispatch(setMyRecipes(resp.data.attributes.recipes))
+                // debugger
+                history.push("/")
             }
             
         })
