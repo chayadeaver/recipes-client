@@ -1,6 +1,5 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { clearRecipes } from '../reducers/myRecipes'
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -33,7 +32,6 @@ export const login = (credentials, history) => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                // dispatch(setMyRecipes(response.data.attributes.recipes))
                 dispatch(resetLoginForm())
                 history.push('/')
             }
@@ -69,10 +67,9 @@ export const signup = (credentials, history) => {
     }
 }
 
-export const logout = history => {
+export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        // dispatch(clearRecipes())
         return fetch("http://localhost:3001/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
@@ -91,12 +88,10 @@ export const getCurrentUser = () => {
         })
         .then(res => res.json())
         .then(response => {
-            // debugger
             if (response.error) {
                 console.log(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                // dispatch(setMyRecipes(response.data.attributes.recipes))
             }
         })
         .catch(console.log)

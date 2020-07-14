@@ -9,7 +9,6 @@ const SearchBar = props => {
     const allRecipes = useSelector(state => state.myRecipes.allRecipes,
             
     )
-    // debugger
     const handleChange = e => {
         setQuery(e.target.value)
         dispatch(getAllRecipeSearchResults(query, allRecipes)) 

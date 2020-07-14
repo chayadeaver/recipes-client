@@ -40,11 +40,9 @@ class RecipeForm extends React.Component {
 
 
     handleSubmit = e => { 
-        // debugger
         e.preventDefault()
-        const id = this.props.recipe ? this.props.recipe.id : null
+        const id = this.props.recipe ? this.props.recipe.id : null // checks to see if theres an id and assigns null if not
         this.props.onSubmit(this.state, this.props.history, id)
-        // this.props.history.replace(`/myrecipes`)
     }
 
     componentDidMount() {
@@ -58,7 +56,6 @@ class RecipeForm extends React.Component {
                 ingredients: attributes.ingredients
             })
         }
-        
     }
 
 
