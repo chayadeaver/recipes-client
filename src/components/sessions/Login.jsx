@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from '../../actions/loginForm'
 import { login } from '../../actions/currentUser'
+import { Link } from 'react-router-dom'
 
 
 const Login = ({ loginFormData, updateLoginForm, login, history }) => {
@@ -21,7 +22,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
     return (
         <div>
-            <br />
+            <p>Not a member? Create an account <Link to="/signup">here</Link></p>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <div className="col-auto">
