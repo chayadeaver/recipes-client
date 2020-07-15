@@ -1,6 +1,10 @@
 # My Family Recipes
 A web application that stores user-submitted recipes and allows other users to make changes to their recipes.
 
+![react-project-demo](recipes-client/assets/images/react project demo.gif)
+
+[Demo](https://www.loom.com/share/5b4697bea839414bb90065468e92a676)
+
 ## Features
 * Uses Redux Thunk middleware to send and receive data from API
 * Renders JavaScript and HTML onto the DOM through React components
@@ -20,9 +24,10 @@ A web application that stores user-submitted recipes and allows other users to m
 * Ruby [2.6.1]
 * Rails [5.2.3] - MVC framework used as an API
 * Bcrypt - gem used for encryption and securing user passwords
+* Rack-cors - allow for cross-origin resource sharing
 * Faker - gem used to easily generate fake data for recipes and ingredients
 * Fast_jsonapi - serializes API routes to JSON
-* Postgreql -  database
+* PostgreSQL -  database
 
 
 ## Installing
