@@ -1,7 +1,7 @@
 # My Family Recipes
 A web application that stores user-submitted recipes and allows other users to make changes to their recipes.
 
-![react-project-demo](recipes-client/src/assets/react-project-demo.gif)
+![react-project-demo](https://user-images.githubusercontent.com/52929582/87499142-765c3500-c627-11ea-8c67-203333177950.gif)
 
 [Demo](https://www.loom.com/share/5b4697bea839414bb90065468e92a676)
 
