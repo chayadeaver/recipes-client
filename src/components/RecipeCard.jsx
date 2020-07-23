@@ -16,7 +16,7 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match, loggedIn }) => {
             return (
                 <div>
                     <h4>{recipe.attributes.name}</h4>
-                    <div>
+                    <div className="imageContainer">
                         <img src={recipe.attributes.image_url} alt="_blank"/>
                     </div>
                     <p>{recipe.attributes.description}</p>
