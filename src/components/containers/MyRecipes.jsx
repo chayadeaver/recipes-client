@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const MyRecipes = props => {
-    const userRecipes = props.recipes.filter(recipe => {
-        return recipe.attributes.user_id == props.currentUser.id
+const MyRecipes = ({ recipes, currentUser }) => {
+    const userRecipes = recipes.filter(recipe => {
+        return recipe.attributes.user_id == currentUser.id
     })
     const recipeCards = userRecipes.length > 0 ? 
         userRecipes.map((r, i) => {

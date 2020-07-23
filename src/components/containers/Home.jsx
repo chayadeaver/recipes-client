@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SearchBar from '../SearchBar';
 
-const Home = props => {
+const Home = ({ recipes, searchResults, searchBar, location }) => {
     const getRecipes = () => {
-        let { recipes } = props
-        if (props.searchResults !== undefined && props.searchResults.length > 0) {
-            recipes = props.searchResults
+        // let { recipes } = props
+        if (searchResults !== undefined && searchResults.length > 0) {
+            recipes = searchResults
             return recipes
         } else {
             return recipes
@@ -23,7 +23,7 @@ const Home = props => {
         <div>
             <h4>Browse Recipes</h4>
             <br />
-            <SearchBar searchBar={props.searchBar} location={props.location}/>
+            <SearchBar searchBar={searchBar} location={location}/>
             {recipeCards}
         </div>
     )
