@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Button, Form } from "react-bootstrap"
-import SearchBar from '../SearchBar';
+import { Card, Button } from "react-bootstrap"
+// import SearchBar from '../SearchBar';
 
 const MyRecipes = ({ recipes, currentUser, searchBar, location }) => {
+    
     const userRecipes = recipes.filter(recipe => {
         return recipe.attributes.user_id == currentUser.id
     })
