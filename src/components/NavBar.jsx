@@ -29,7 +29,7 @@ const NavBar = ({ currentUser, loggedIn, logout, history }) => {
         if (loggedIn) {
             return (
                 <>
-                <Nav.Item><Nav.Link>Hi, {currentUser.attributes.name}</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/myrecipes">Hi, {currentUser.attributes.name}</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link>|</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/myrecipes">My Recipes</Nav.Link></Nav.Item> 
