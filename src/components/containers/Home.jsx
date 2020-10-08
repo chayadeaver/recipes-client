@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SearchBar from '../SearchBar';
+import { Card, Button, Form } from 'react-bootstrap'
+
 
 const Home = ({ recipes, searchResults, searchBar, location }) => {
     const [ toggled, setToggled ] = useState(false)
@@ -25,9 +27,21 @@ const Home = ({ recipes, searchResults, searchBar, location }) => {
     }
 
     const recipeCards = sortByAlph().length > 0 ? 
-        sortByAlph().map((r, i) => (<div key={i}>
-            <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link>
-        </div>)) : <p>This is myRecipes with an empty array of recipes</p>
+        sortByAlph().map((r, i) => {
+            return (
+                <>
+                    {/* <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link> */}
+                    <Card className="recipe-card" key={i}>
+                        <div className="imageContainer">
+                        <Card.Img variant="top" src={r.attributes.image_url} />
+                        </div>
+                        <Card.Body>
+                            <Card.Title>{r.attributes.name}</Card.Title>
+                            <Card.Text>{r.attributes.description}</Card.Text>
+                            <Button variant="primary" href={`/recipes/${r.id}`}>View Recipe</Button>
+                        </Card.Body>
+                    </Card>
+                </>)}) : <p>This is myRecipes with an empty array of recipes</p>
 
     const toggle = () => {
         setToggled(!toggled)
@@ -35,13 +49,20 @@ const Home = ({ recipes, searchResults, searchBar, location }) => {
 
     return (
     
-        <div>
+        <>
             <h4>Browse Recipes</h4>
             <br />
             <SearchBar searchBar={searchBar} location={location}/>
-            <button onClick={toggle}>Sort Me</button>
-            {recipeCards}
-        </div>
+            <Form.Check
+            type="switch"
+            id="custom-switch"
+            label="Sort by Alphabet"
+            onClick={toggle}/>
+            <div className="recipe-container">
+                {recipeCards}
+            </div>
+            
+        </>
     )
 }
 
