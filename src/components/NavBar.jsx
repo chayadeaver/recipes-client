@@ -21,6 +21,7 @@ const Styles = styled.div`
 const NavBar = ({ currentUser, loggedIn, logout, history }) => {
     const logoutRedirect = () => {
         logout()
+        alert("You have successfully logged out. Have a nice day!")
         history.push('/')
     }
     
@@ -28,6 +29,8 @@ const NavBar = ({ currentUser, loggedIn, logout, history }) => {
         if (loggedIn) {
             return (
                 <>
+                <Nav.Item><Nav.Link>Hi, {currentUser.attributes.name}</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link>|</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/myrecipes">My Recipes</Nav.Link></Nav.Item> 
                 <Nav.Item><Nav.Link href="/recipes/new">New Recipe</Nav.Link></Nav.Item>
