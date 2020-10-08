@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, Form } from "react-bootstrap"
+import SearchBar from '../SearchBar';
 
-const MyRecipes = ({ recipes, currentUser }) => {
+const MyRecipes = ({ recipes, currentUser, searchBar, location }) => {
     const userRecipes = recipes.filter(recipe => {
         return recipe.attributes.user_id == currentUser.id
     })
@@ -11,7 +11,6 @@ const MyRecipes = ({ recipes, currentUser }) => {
         userRecipes.map((r, i) => {
             return (
                 <>
-                    {/* <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link> */}
                     <Card className="recipe-card" key={i}>
                         <div className="imageContainer">
                         <Card.Img variant="top" src={r.attributes.image_url} />
@@ -27,10 +26,12 @@ const MyRecipes = ({ recipes, currentUser }) => {
             )}): <p>This is myRecipes with an empty array of recipes</p>
     
     return (
-        <div className="recipe-container">
-                {recipeCards}
-        </div>
-        
+        <>
+            {/* <SearchBar searchBar={searchBar} location={location}/> */}
+            <div className="recipe-container">
+                    {recipeCards}
+            </div>
+        </>
     )
     
 }
