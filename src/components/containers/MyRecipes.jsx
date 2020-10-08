@@ -24,7 +24,7 @@ const MyRecipes = ({ recipes, currentUser, searchBar, location }) => {
                 </Card.Body>
             </Card>
                 </>
-            )}): <p>This is myRecipes with an empty array of recipes</p>
+            )}): <p>You don't have any recipes yet. Create one<Button variant="primary" href="/recipes/new" size="sm">Here</Button></p>
     
     return (
         <>
