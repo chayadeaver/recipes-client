@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getRecipe } from '../actions/myRecipes'
+import { Button } from 'react-bootstrap'
 
 
 const RecipeCard = ({ recipe, currentUser, getRecipe, match, loggedIn }) => {
@@ -14,7 +14,7 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match, loggedIn }) => {
             const currentUserId = currentUser.id
 
             return (
-                <div>
+                <div className="recipe-info">
                     <h4>{recipe.attributes.name}</h4>
                     <div className="imageContainer">
                         <img src={recipe.attributes.image_url} alt="_blank"/>
@@ -22,6 +22,7 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match, loggedIn }) => {
                     <p>{recipe.attributes.description}</p>
                     <br />
                     <h5>Ingredients:</h5>
+                    <br />
                     {recipe.attributes.ingredients.map((ing, idx) => {
                         return (
                             <p key={idx}>
@@ -31,19 +32,20 @@ const RecipeCard = ({ recipe, currentUser, getRecipe, match, loggedIn }) => {
                     })}
                     <h5>Instructions:</h5>
                     <p>{recipe.attributes.instructions}</p>
-                    {recipeUserId === currentUserId ? <Link to={`/recipes/${recipe.id}/edit`}>Edit This Recipe</Link> : null}
+                    {recipeUserId === currentUserId ? <Button href={`/recipes/${recipe.id}/edit`}>Edit This Recipe</Button> : null}
                 </div>
             )
             } else if (recipe){
                 return (
-                    <div>
+                    <div className="recipe-info">
                         <h4>{recipe.attributes.name}</h4>
-                        <div>
+                        <div className="imageContainer">
                             <img src={recipe.attributes.image_url} alt="_blank"/>
                         </div>
                         <p>{recipe.attributes.description}</p>
                         <br />
                         <h5>Ingredients:</h5>
+                        <br />
                         {recipe.attributes.ingredients.map((ing, idx) => {
                             return (
                                 <p key={idx}>
