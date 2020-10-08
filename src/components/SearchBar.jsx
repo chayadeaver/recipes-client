@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllRecipeSearchResults } from '../reducers/myRecipes'
+import { Button } from 'react-bootstrap';
 
 
 const SearchBar = props => {
@@ -18,7 +19,7 @@ const SearchBar = props => {
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
                 <input autoFocus onChange={handleChange} type="search" id="searchBar" placeholder="Search" />
-                <button type="submit" className="btn btn-success btn-sm">Search</button>
+                <Button type="submit" variant="success">Search</Button>
                 </div>
             </form>
         </div>
