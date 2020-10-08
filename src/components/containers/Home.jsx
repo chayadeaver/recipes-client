@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SearchBar from '../SearchBar';
 import { Card, Button, Form } from 'react-bootstrap'
@@ -30,7 +29,6 @@ const Home = ({ recipes, searchResults, searchBar, location }) => {
         sortByAlph().map((r, i) => {
             return (
                 <>
-                    {/* <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link> */}
                     <Card className="recipe-card" key={i}>
                         <div className="imageContainer">
                         <Card.Img variant="top" src={r.attributes.image_url} />
