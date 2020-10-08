@@ -33,6 +33,7 @@ export const login = (credentials, history) => {
             } else {
                 dispatch(setCurrentUser(response.data))
                 dispatch(resetLoginForm())
+                alert("You have logged in successfully.")
                 history.push('/')
             }
         })
