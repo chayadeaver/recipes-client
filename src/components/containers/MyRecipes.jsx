@@ -6,7 +6,7 @@ import { Card, Button } from "react-bootstrap"
 const MyRecipes = ({ recipes, currentUser, searchBar, location }) => {
     
     const userRecipes = recipes.filter(recipe => {
-        return recipe.attributes.user_id == currentUser.id
+        return recipe.attributes.user_id === currentUser.id
     })
     const recipeCards = userRecipes.length > 0 ? 
         userRecipes.map((r, i) => {
