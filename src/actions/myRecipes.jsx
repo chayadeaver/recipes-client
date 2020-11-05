@@ -3,7 +3,7 @@ import { setAllRecipes, setUpdateRecipe, addRecipe, fetchRecipe} from "../reduce
 // asynchronus action creators
 export const getAllRecipes = () => {
     return dispatch => {
-        return fetch("https://my-family-recipes-api.herokuapp.com//api/v1/recipes", {
+        return fetch("https://my-family-recipes-api.herokuapp.com/api/v1/recipes", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -24,7 +24,7 @@ export const getAllRecipes = () => {
 
 export const getRecipe = id => {    
     return dispatch => {
-        return fetch(`https://my-family-recipes-api.herokuapp.com//api/v1/recipes/${id}`, {
+        return fetch(`https://my-family-recipes-api.herokuapp.com/api/v1/recipes/${id}`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -52,7 +52,7 @@ export const updateRecipe = (recipeData, history, id) => {
             instructions: recipeData.instructions,
             ingredients_attributes: recipeData.ingredients
         }
-        return fetch(`https://my-family-recipes-api.herokuapp.com//api/v1/recipes/${id}`, {
+        return fetch(`https://my-family-recipes-api.herokuapp.com/api/v1/recipes/${id}`, {
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -82,7 +82,7 @@ export const createRecipe = (recipeData, history) => {
                 instructions: recipeData.instructions,
                 ingredients_attributes: recipeData.ingredients
         }
-        return fetch("https://my-family-recipes-api.herokuapp.com//api/v1/recipes", {
+        return fetch("https://my-family-recipes-api.herokuapp.com/api/v1/recipes", {
             credentials: "include",    
             method: "POST",
             headers: {
