@@ -5,6 +5,8 @@ A web application that stores user-submitted recipes and allows other users to m
 
 [Demo](https://www.loom.com/share/5b4697bea839414bb90065468e92a676)
 
+[Deployed App](https://myfamilyrecipes.netlify.app/)
+
 ## Features
 * Uses Redux Thunk middleware to send and receive data from API
 * Renders JavaScript and HTML onto the DOM through React components
