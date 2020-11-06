@@ -1,5 +1,10 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
+import { devEndpoints, prodEndpoints } from '../utils/config';
+
+const { _login, _signup, _logout, loggedIn } = devEndpoints
+const { login_, signup_, logout_, loggedIn_ } = prodEndpoints
+
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -18,7 +23,7 @@ export const clearCurrentUser = () => {
 // asynchronous action creators
 export const login = (credentials, history) => {
     return dispatch => {
-        return fetch("https://my-family-recipes-api.herokuapp.com/api/v1/login", {
+        return fetch(login_, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -46,7 +51,7 @@ export const signup = (credentials, history) => {
         const userInfo = {
             user: credentials
         }
-        return fetch("https://my-family-recipes-api.herokuapp.com/api/v1/signup", {
+        return fetch(signup_, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -71,7 +76,7 @@ export const signup = (credentials, history) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch("https://my-family-recipes-api.herokuapp.com/api/v1/logout", {
+        return fetch(logout_, {
             credentials: "include",
             method: "DELETE"
         })
@@ -80,7 +85,7 @@ export const logout = () => {
 
 export const getCurrentUser = () => {
     return dispatch => {
-        return fetch("https://my-family-recipes-api.herokuapp.com/api/v1/get_current_user", {
+        return fetch(loggedIn_, {
             credentials: "include",
             method: "GET",
             headers: {
