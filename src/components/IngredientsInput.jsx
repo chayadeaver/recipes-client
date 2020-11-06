@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IngredientInputs = ({ ingredients }) => {
+const IngredientInputs = ({ ingredients, handleChange }) => {
     return (
         ingredients.map((val, idx) => {
             let ingId = `name-${idx}`, quantityId = `quantity-${idx}`, unitId = `unit-${idx}`
@@ -17,6 +17,7 @@ const IngredientInputs = ({ ingredients }) => {
                             id={ingId}
                             className="name"
                             placeholder={"name"}
+                            onChange={handleChange}
                             value={ingredients[idx].name}
                         />
                         </div>
@@ -30,6 +31,7 @@ const IngredientInputs = ({ ingredients }) => {
                             id={quantityId}
                             className="quantity"
                             placeholder={"quantity"}
+                            onChange={handleChange}
                             value={ingredients[idx].quantity}
                         />
                     </div>
@@ -43,6 +45,7 @@ const IngredientInputs = ({ ingredients }) => {
                             id={unitId}
                             className="unit"
                             placeholder={"unit"}
+                            onChange={handleChange}
                             value={ingredients[idx].unit}
                         />
                     </div>

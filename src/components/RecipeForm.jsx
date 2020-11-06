@@ -63,7 +63,7 @@ class RecipeForm extends React.Component {
     render() {
         let { name, imageUrl, description, instructions, ingredients } = this.state
         return (
-            <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+            <form onSubmit={this.handleSubmit}>
             <label>Recipe</label><br />
                 <div className="form-group">
                     <div className="col-auto">
@@ -73,6 +73,7 @@ class RecipeForm extends React.Component {
                         name="name"
                         id="name"
                         placeholder={"name"}
+                        onChange={this.handleChange}
                         value={name}
                         />
                     </div>
@@ -84,6 +85,7 @@ class RecipeForm extends React.Component {
                         name="imageUrl"
                         id="imageUrl"
                         placeholder={"imageUrl"}
+                        onChange={this.handleChange}
                         value={imageUrl}
                         />
                     </div>
@@ -96,6 +98,7 @@ class RecipeForm extends React.Component {
                         name="description"
                         id="description"
                         placeholder={"description"}
+                        onChange={this.handleChange}
                         value={description}></textarea>
                     </div>
                 </div>
@@ -107,11 +110,12 @@ class RecipeForm extends React.Component {
                         name="instructions"
                         id="instructions"
                         placeholder={"instructions"}
+                        onChange={this.handleChange}
                         value={instructions}></textarea>
                     </div>
                 </div>
 
-                    <IngredientInputs ingredients={ingredients} />
+                    <IngredientInputs ingredients={ingredients} handleChange={this.handleChange}/>
                 <p><button className="btn btn-secondary" onClick={this.addIngredient}>Add New Ingredient</button></p>
 
                 <input className="btn btn-primary" type="submit" value={this.props.buttonText} />
