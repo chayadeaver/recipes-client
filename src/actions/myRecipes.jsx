@@ -1,6 +1,6 @@
 import { setAllRecipes, setUpdateRecipe, addRecipe, fetchRecipe} from "../reducers/myRecipes"
 import { prodEndpoints } from '../utils/config';
-import { setCurrentUser } from './currentUser';
+// import { setCurrentUser } from './currentUser';
 
 // const { _allRecipes, _recipe} = devEndpoints
 const { allRecipes_, recipe_} = prodEndpoints
