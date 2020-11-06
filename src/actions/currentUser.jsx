@@ -2,7 +2,7 @@ import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
 import { devEndpoints, prodEndpoints } from '../utils/config';
 
-const { _login, _signup, _logout, loggedIn } = devEndpoints
+// const { _login, _signup, _logout, loggedIn } = devEndpoints
 const { login_, signup_, logout_, loggedIn_ } = prodEndpoints
 
 
