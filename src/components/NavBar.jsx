@@ -26,6 +26,7 @@ const NavBar = ({ currentUser, loggedIn, logout, history }) => {
     }
     
     const renderNavbar = () => {
+        console.log(currentUser)
         if (loggedIn) {
             return (
                 <>
