@@ -92,6 +92,7 @@ export const getCurrentUser = () => {
             if (response.error) {
                 console.log(response.error)
             } else {
+                console.log(response.data)
                 dispatch(setCurrentUser(response.data))
             }
         })
