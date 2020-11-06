@@ -1,8 +1,15 @@
-export default (state = null, action) => {
+const initialState = {
+    user: {}
+}
+
+export default (state = initialState, action) => {
     switch(action.type) {
 
         case "SET_CURRENT_USER":
-            return action.user
+            return {
+                ...state,
+                user: action.user
+            }
         case "CLEAR_CURRENT_USER":
             return null
         default:
