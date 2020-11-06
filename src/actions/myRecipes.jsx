@@ -1,5 +1,6 @@
 import { setAllRecipes, setUpdateRecipe, addRecipe, fetchRecipe} from "../reducers/myRecipes"
 import { prodEndpoints } from '../utils/config';
+import { setCurrentUser } from './currentUser';
 
 // const { _allRecipes, _recipe} = devEndpoints
 const { allRecipes_, recipe_} = prodEndpoints
@@ -7,7 +8,8 @@ const { allRecipes_, recipe_} = prodEndpoints
 
 // asynchronus action creators
 export const getAllRecipes = () => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        console.log(getState())
         return fetch(allRecipes_, {
             credentials: "include",
             method: "GET",
