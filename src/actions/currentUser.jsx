@@ -84,7 +84,8 @@ export const logout = () => {
 }
 
 export const getCurrentUser = () => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        console.log(getState());
         return fetch(loggedIn_, {
             credentials: "include",
             method: "GET",
