@@ -3,7 +3,7 @@ const initialState = {
     password: ""
 }
 
-export default manageLoginForm = (state = initialState, action) => {
+export default function manageLoginForm(state = initialState, action){
     switch(action.type) {
         case "UPDATE_LOGIN_FORM":
             return action.formData

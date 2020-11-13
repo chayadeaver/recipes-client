@@ -3,7 +3,7 @@ const initialState = {
     loggedIn: false 
 }
 
-export default manageCurrentUser = (state = initialState, action) => {
+export default function manageCurrentUser(state = initialState, action){
     switch(action.type) {
 
         case "SET_CURRENT_USER":

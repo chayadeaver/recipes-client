@@ -4,7 +4,7 @@ const initialState = {
     password: ""
 }
 
-export default manageSignupForm = (state = initialState, action) => {
+export default function manageSignupForm(state = initialState, action){
     switch (action.type) {
         case "UPDATE_SIGNUP_FORM":
             return action.formData
