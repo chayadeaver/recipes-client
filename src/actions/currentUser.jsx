@@ -99,7 +99,10 @@ export const getCurrentUser = () => {
                 console.log(response.error)
             } else {
                 console.log(response.user.data)
-                dispatch(setCurrentUser(response.user.data))
+                if (response.user.loggedIn && getState().currentUser.loggedIn === false) {
+                    dispatch(setCurrentUser(response.user.data))
+                }
+                
             }
         })
         .catch(console.log)
