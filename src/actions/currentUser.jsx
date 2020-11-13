@@ -36,7 +36,7 @@ export const login = (credentials, history) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setCurrentUser(response.data))
+                dispatch(setCurrentUser(response.user.data))
                 dispatch(resetLoginForm())
                 alert("You have logged in successfully.")
                 history.push('/')
@@ -64,7 +64,7 @@ export const signup = (credentials, history) => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setCurrentUser(response.data))
+                dispatch(setCurrentUser(response.user.data))
                 dispatch(resetSignupForm())
                 history.push('/')
             }
@@ -97,8 +97,8 @@ export const getCurrentUser = () => {
             if (response.error) {
                 console.log(response.error)
             } else {
-                console.log(response.data)
-                dispatch(setCurrentUser(response.data))
+                console.log(response.user.data)
+                dispatch(setCurrentUser(response.user.data))
             }
         })
         .catch(console.log)
