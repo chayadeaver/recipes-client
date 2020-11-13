@@ -4,7 +4,7 @@ const initialState = {
 }
 
 
-export default (state = initialState, action) => {
+export default manageRecipes = (state = initialState, action) => {
     switch(action.type) {
         case "SET_ALL_RECIPES":
             return {
