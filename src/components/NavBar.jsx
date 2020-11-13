@@ -18,19 +18,19 @@ const Styles = styled.div`
     }
 `;
 
-const NavBar = ({ currentUser, loggedIn, logout, history }) => {
+const NavBar = (props) => {
     const logoutRedirect = () => {
-        logout()
+        props.logout()
         alert("You have successfully logged out. Have a nice day!")
-        history.push('/')
+        props.history.push('/')
     }
     
     const renderNavbar = () => {
-        console.log(currentUser)
-        if (loggedIn) {
+        // debugger
+        if (props.loggedIn) {
             return (
                 <>
-                <Nav.Item><Nav.Link href="/myrecipes">Hi, {currentUser.user}</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="/myrecipes">Hi, {props.currentUser.user.attributes?.name}</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link>|</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="/myrecipes">My Recipes</Nav.Link></Nav.Item> 
@@ -64,10 +64,10 @@ const NavBar = ({ currentUser, loggedIn, logout, history }) => {
     
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
     return {
-        currentUser,
-        loggedIn: !!currentUser
+        currentUser: state.currentUser,
+        loggedIn: !!state.currentUser
     }
 }
 
