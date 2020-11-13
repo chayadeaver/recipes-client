@@ -28,8 +28,8 @@ const Home = ({ recipes, searchResults, searchBar, location }) => {
     const recipeCards = sortByAlph().length > 0 ? 
         sortByAlph().map((r, i) => {
             return (
-                <>
-                    <Card className="recipe-card" key={i}>
+                <React.Fragment key={i}>
+                    <Card className="recipe-card">
                         <div className="imageContainer">
                         <Card.Img variant="top" src={r.attributes.image_url} />
                         </div>
@@ -39,7 +39,7 @@ const Home = ({ recipes, searchResults, searchBar, location }) => {
                             <Button variant="primary" href={`/recipes/${r.id}`}>View Recipe</Button>
                         </Card.Body>
                     </Card>
-                </>)}) : <p>This is myRecipes with an empty array of recipes</p>
+                </React.Fragment>)}) : <p>This is myRecipes with an empty array of recipes</p>
 
     const toggle = () => {
         setToggled(!toggled)
