@@ -10,7 +10,7 @@ import Signup  from './components/sessions/Signup'
 import MyRecipes  from './components/containers/MyRecipes'
 import RecipeForm  from './components/RecipeForm'
 import { connect } from 'react-redux'
-import { getCurrentUser } from './actions/currentUser'
+import { getCurrentUser } from './redux/actions/currentUser'
 import MainContainer from './components/containers/MainContainer';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { getAllRecipes, updateRecipe, createRecipe } from './actions/myRecipes';
