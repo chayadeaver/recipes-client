@@ -4,7 +4,6 @@ import { updateLoginForm } from '../../redux/actions/loginForm'
 import { login } from '../../redux/actions/currentUser'
 import { Link } from 'react-router-dom'
 
-
 const Login = ({ loginFormData, updateLoginForm, login, history }) => {
     const handleInputChange = event => {
         const { name, value } = event.target
