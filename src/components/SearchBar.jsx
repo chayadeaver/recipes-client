@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllRecipeSearchResults } from '../reducers/myRecipes'
+import { getAllRecipeSearchResults } from '../redux/reducers/myRecipes'
 import { Button, Form } from 'react-bootstrap';
 
 
