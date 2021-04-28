@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateLoginForm } from './../redux/actions/loginForm'
+import { updateLoginForm } from '../../redux/actions/loginForm'
 import { login } from '../../redux/actions/currentUser'
 import { Link } from 'react-router-dom'
 
