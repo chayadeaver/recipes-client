@@ -10,7 +10,7 @@ const { login_, signup_, logout_, loggedIn_ } = prodEndpoints
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
-        user
+        payload: user
     }
 }
 

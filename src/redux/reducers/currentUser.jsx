@@ -9,7 +9,7 @@ export default function manageCurrentUser(state = initialState, action){
         case "SET_CURRENT_USER":
             return {
                 ...state,
-                user: action.user,
+                user: action.payload,
                 loggedIn: true
             }
         case "CLEAR_CURRENT_USER":
