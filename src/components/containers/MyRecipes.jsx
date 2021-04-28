@@ -40,7 +40,7 @@ const MyRecipes = ({ recipes, currentUser, searchBar, location }) => {
 const mapStateToProps = ({ myRecipes, currentUser }) => {
     return {
         recipes: myRecipes.allRecipes,
-        currentUser
+        currentUser: currentUser.user
     }
 }
 
