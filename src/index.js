@@ -14,9 +14,9 @@ import { BrowserRouter as Router} from 'react-router-dom'
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <PersistGate persistor={persistor}>
+            {/* <PersistGate persistor={persistor}> */}
                 <App />
-            </PersistGate>
+            {/* </PersistGate> */}
         </Router>
     </Provider>, 
 document.getElementById('root'));
