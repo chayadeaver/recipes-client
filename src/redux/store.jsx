@@ -11,7 +11,9 @@ export const store = createStore(rootReducer, composeEnhancer(applyMiddleware(th
 
 export const persistor = persistStore(store);
 
-export default {
+export const persistedStore = {
     store,
     persistor
-};
+}
+
+export default persistedStore;
