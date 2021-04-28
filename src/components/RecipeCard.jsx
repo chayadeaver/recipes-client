@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getRecipe } from '../actions/myRecipes'
+import { getRecipe } from '../redux/actions/myRecipes'
 import { Button } from 'react-bootstrap'
 
 

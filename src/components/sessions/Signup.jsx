@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSignupForm } from '../../actions/signupForm'
-import { signup } from '../../actions/currentUser'
+import { updateSignupForm } from '../../redux/actions/signupForm'
+import { signup } from '../../redux/actions/currentUser'
 import { Link } from 'react-router-dom'
 
 
